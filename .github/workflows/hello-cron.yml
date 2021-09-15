@@ -2,7 +2,7 @@ name: Cron test
 
 on:
   schedule:
-  - cron: * * * * *
+  - cron: 1/5 * * * *
 
 jobs:
   build:
