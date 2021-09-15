@@ -17,4 +17,4 @@ jobs:
         run: echo Hello, $GITHUB_EVENT_NAME!
         
       - name: Current branch
-        run: echo Current branch is ${GITHUB_REF##*/}
+        run: echo Current branch is $GITHUB_REF
