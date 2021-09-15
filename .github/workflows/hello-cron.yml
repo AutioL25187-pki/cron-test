@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Hello, world!
-        run: echo Hello, $GITHUB_EVENT_NAME!
+      - name: Hello, master!
+        run: echo Hello, master branch!
         
