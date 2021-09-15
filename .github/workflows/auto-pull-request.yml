@@ -1,0 +1,23 @@
+name: Create automatic pull request
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Automaattinen pulrikuesti
+          base: specification/feature-files
+          title: 'Pulrikuerstin otsikko'
+          body: |
+            Mihin tämä tulee?
+            - Hieno *ranskalainen* viiva
+          labels: automaatti
