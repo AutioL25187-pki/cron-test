@@ -2,7 +2,9 @@ name: Cron test
 
 on:
   schedule:
-  - cron: "*/10 * * * *"
+  - cron: '*/10 * * * *'
+  push:
+    paths: trigger/*
 
 jobs:
   build:
