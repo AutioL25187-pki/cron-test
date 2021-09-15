@@ -5,6 +5,7 @@ on:
   - cron: '*/10 * * * *'
   push:
     paths: trigger/*
+    branches: feature/*
 
 jobs:
   build:
