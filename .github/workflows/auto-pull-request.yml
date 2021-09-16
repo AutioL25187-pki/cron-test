@@ -21,6 +21,13 @@ jobs:
           pr_label: auto-pr
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Approve Pull Request
+        if: ${{steps.create-pr.outputs.pr_number}}
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{steps.create-pr.outputs.pr_number}}
 
       - name: Merge Pull Request v2
         if: ${{steps.create-pr.outputs.pr_number}}
