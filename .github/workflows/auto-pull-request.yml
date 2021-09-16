@@ -23,18 +23,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Approve Pull Request
-        if: ${{steps.create-pr.outputs.pr_number}}
+        if: ${{ steps.create-pr.outputs.pr_number }}
         uses: juliangruber/approve-pull-request-action@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{steps.create-pr.outputs.pr_number}}
+          github-token: ${{ secrets.PR_AUTO_APPROVE_TOKEN }}
+          number: ${{ steps.create-pr.outputs.pr_number }}
 
       - name: Merge Pull Request v2
-        if: ${{steps.create-pr.outputs.pr_number}}
+        if: ${{ steps.create-pr.outputs.pr_number }}
         uses: sudo-bot/action-pull-request-merge@v1.1.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{steps.create-pr.outputs.pr_number}}
+          number: ${{ steps.create-pr.outputs.pr_number }}
           merge-method: merge
           merge-title: Merged specification into main #${{steps.create-pr.outputs.pr_number}}
           merge-message: This is an automatic merge done via auto-pull-request.yml workflow.
