@@ -19,3 +19,4 @@ jobs:
           pr_title: Pulrikuestin otsikko
           pr_body: ":crown: *An automated PR*"
           pr_allow_empty: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
