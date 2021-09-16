@@ -29,7 +29,7 @@ jobs:
           github-token: ${{ secrets.PR_AUTO_APPROVE_TOKEN }}
           number: ${{ steps.create-pr.outputs.pr_number }}
 
-      - name: Merge Pull Request v2
+      - name: Merge Pull Request
         if: ${{ steps.create-pr.outputs.pr_number }}
         uses: sudo-bot/action-pull-request-merge@v1.1.1
         with:
@@ -37,4 +37,4 @@ jobs:
           number: ${{ steps.create-pr.outputs.pr_number }}
           merge-method: merge
           merge-title: Merged specification into main #${{steps.create-pr.outputs.pr_number}}
-          merge-message: This is an automatic merge done via auto-pull-request.yml workflow.
+          merge-message: This is an automatic merge done by $GITHUB_WORKFLOW workflow.
