@@ -18,5 +18,7 @@ jobs:
           destination_branch: main
           pr_title: Pulrikuestin otsikko
           pr_body: ":crown: *An automated PR*"
+          pr_label: auto-pr
+          pr_reviewer: AutioL25187-pki
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
