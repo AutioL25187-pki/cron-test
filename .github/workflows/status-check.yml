@@ -1,0 +1,17 @@
+name: Status Check
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  status-check-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - run: sleep 60
+
+      - name: Run a one-line script
+        run: echo Statuc check OK!

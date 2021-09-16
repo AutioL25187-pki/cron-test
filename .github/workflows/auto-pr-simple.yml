@@ -1,7 +1,8 @@
-name: Create automatic pull request
+name: Auto merge main into specification/feature-files
 
 on:
   workflow_dispatch:
+  # TODO: cron schedule daily
 
 jobs:
   build:
@@ -14,21 +15,14 @@ jobs:
         id: create-pr
         uses: repo-sync/pull-request@v2.6
         with:
-          source_branch: specification/feature-files
-          destination_branch: main
-          pr_title: Merge specification/feature-files into main
-          pr_body: An automated PR to update changes made to feature files into the main branch.
+          source_branch: main
+          destination_branch: specification/feature-files
+          pr_title: Merge main into specification/feature-files
+          pr_body: An automated PR to merge the main branch into the specification/feature-files branch.
           pr_label: auto-pr
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Approve Pull Request
-        if: ${{ steps.create-pr.outputs.pr_number }}
-        uses: juliangruber/approve-pull-request-action@v1
-        with:
-          github-token: ${{ secrets.PR_AUTO_APPROVE_TOKEN }}
-          number: ${{ steps.create-pr.outputs.pr_number }}
-
       - name: Merge Pull Request
         if: ${{ steps.create-pr.outputs.pr_number }}
         uses: sudo-bot/action-pull-request-merge@v1.1.1
@@ -36,5 +30,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.create-pr.outputs.pr_number }}
           merge-method: merge
-          merge-title: Merged specification into main #${{steps.create-pr.outputs.pr_number}}
+          merge-title: Merged main into specification/feature-files #${{steps.create-pr.outputs.pr_number}}
           merge-message: This is an automatic merge done by $GITHUB_WORKFLOW workflow.
