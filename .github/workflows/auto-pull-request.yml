@@ -10,14 +10,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+
+      - name: GitHub Pull Request Action
+        uses: repo-sync/pull-request@v2.6
         with:
-          commit-message: Automaattinen pulrikuesti
-          base: specification/feature-files
-          title: 'Pulrikuerstin otsikko'
-          body: |
-            Mihin tämä tulee?
-            - Hieno *ranskalainen* viiva
-          labels: automaatti
+          source_branch: specification/feature-files
+          destination_branch: main
+          pr_title: Pulrikuestin otsikko
+          pr_body: ":crown: *An automated PR*"
+          pr_allow_empty: false
