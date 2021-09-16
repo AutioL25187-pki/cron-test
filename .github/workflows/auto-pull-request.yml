@@ -23,6 +23,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge Pull Request v2
+        if: ${{steps.create-pr.outputs.pr_number}}
         uses: sudo-bot/action-pull-request-merge@v1.1.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
