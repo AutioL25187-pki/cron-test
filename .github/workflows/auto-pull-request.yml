@@ -29,6 +29,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{steps.create-pr.outputs.pr_number}}
           merge-method: merge
-          filter-label: auto-pr
-          merge-title: "Merged specification into main #${{steps.create-pr.outputs.pr_number}}"
-          merge-message: "MERGED specification into main #${{steps.create-pr.outputs.pr_number}}"
+          merge-title: Merged specification into main #${{steps.create-pr.outputs.pr_number}}
+          merge-message: This is an automatic merge done via auto-pull-request.yml workflow.
