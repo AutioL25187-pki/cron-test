@@ -7,7 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
 
@@ -16,8 +15,8 @@ jobs:
         with:
           source_branch: specification/feature-files
           destination_branch: main
-          pr_title: Pulrikuestin otsikko
-          pr_body: ":crown: *An automated PR*"
+          pr_title: Merge specification/feature-files into main
+          pr_body: An automated PR to update changes made to feature files into the main branch.
           pr_label: auto-pr
           pr_reviewer: AutioL25187-pki
           pr_allow_empty: false
