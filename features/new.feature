@@ -1,2 +1,1 @@
-uusi tiedosto
-muutos #1
+vanha tiedosto
