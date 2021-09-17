@@ -20,7 +20,7 @@ jobs:
           pr_body: An automated PR to update changes made to feature files into the main branch.
           pr_label: auto-pr
           pr_allow_empty: false
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PR_AUTO_APPROVE_TOKEN }}
           
       - name: Approve Pull Request
         if: ${{ steps.create-pr.outputs.pr_number }}
